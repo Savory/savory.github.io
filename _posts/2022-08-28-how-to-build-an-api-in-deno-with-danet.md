@@ -108,7 +108,7 @@ In order to create a basic controller, we use classes and **decorators**. Decora
 We use the `@Controller()` decorator, which is **required** to define a basic controller. We'll specify an optional route path prefix of todo. Using a path prefix in a `@Controller()` decorator allows us to easily group a set of related routes, and minimize repetitive code. For example, we may choose to group a set of routes that manage interactions with a customer entity under the route /customers. In that case, we could specify the path prefix customers in the `@Controller()` decorator so that we don't have to repeat that portion of the path for each route in the file.
 
 
-The `constructor(public todoService: TodoService)` uses **Dependency Injection**. Danet is built around this strong design pattern. We recommend reading a great article about this concept in the official Angular documentation.
+The `constructor(public todoService: TodoService)` uses **Dependency Injection**. Danet is built around this strong design pattern. We recommend reading a great article about this concept in the [official Angular documentation](https://angular.io/guide/dependency-injection).
 
 ### src/todo/service.ts
 
