@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 # Build an API in Deno with Danet
 
