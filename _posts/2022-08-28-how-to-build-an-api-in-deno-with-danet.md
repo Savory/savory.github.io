@@ -2,7 +2,7 @@
 published: true
 ---
 
-Welcome, take a seat, and keep your keyboard at hand because today we are building a REST API in Danet. In the end, we'll also show you how to handle authentication.
+Welcome, take a seat, and keep your keyboard at hand because today we are building a REST API in Deno using Danet. In the end, we'll also show you how to handle authentication.
 
 ![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
 
