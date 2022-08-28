@@ -5,7 +5,7 @@ published: true
 
 Welcome, take a seat, and keep your keyboard at hand because today we are building a REST API in Danet. In the end, we'll also show you how to handle authentication.
 
-![deno logo.png]({{site.baseurl}}/_posts/deno logo.png)
+![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
 
 ## What is Deno ?
 Deno is a simple, modern, and secure runtime for JavaScript, TypeScript, and WebAssembly that uses V8 and is built in Rust.
@@ -72,7 +72,7 @@ The easiest way to start a Danet's project is to clone the starter project from 
 The starter project is a simple in-memory REST API for a to-do list.
 
 Here is how the project looks:
-![deno-start-tree.png]({{site.baseurl}}/_posts/deno-start-tree.png)
+![deno-start-tree.png]({{site.baseurl}}/assets/images/deno-start-tree.png)
 
 
 We will go through each file's content except for `LICENSE`, `README` and `todo.test.ts`
