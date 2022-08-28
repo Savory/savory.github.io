@@ -100,27 +100,28 @@ Simplest file, we define our Todo class.
 
 {% gist 2ccdbfce179625283cc206c1057d22c9 %}
 
-Controllers are responsible for handling incoming requests and returning responses to the client.
+Controllers are responsible for handling incoming **requests** and returning **responses** to the client.
 
-A controller's purpose is to receive specific requests for the application. The routing mechanism controls which controller receives which requests. Frequently, each controller has more than one route, and different routes can perform different actions.
+A controller's purpose is to receive specific requests for the application. The **routing** mechanism controls which controller receives which requests. Frequently, each controller has more than one route, and different routes can perform different actions.
 
-In order to create a basic controller, we use classes and decorators. Decorators associate classes with required metadata and enable Danet to create a routing map (tie requests to the corresponding controllers).
+In order to create a basic controller, we use classes and **decorators**. Decorators associate classes with required metadata and enable Danet to create a routing map (tie requests to the corresponding controllers).
 
-We use the `@Controller()` decorator, which is required to define a basic controller. We'll specify an optional route path prefix of todo. Using a path prefix in a `@Controller()` decorator allows us to easily group a set of related routes, and minimize repetitive code. For example, we may choose to group a set of routes that manage interactions with a customer entity under the route /customers. In that case, we could specify the path prefix customers in the `@Controller()` decorator so that we don't have to repeat that portion of the path for each route in the file.
+We use the `@Controller()` decorator, which is **required** to define a basic controller. We'll specify an optional route path prefix of todo. Using a path prefix in a `@Controller()` decorator allows us to easily group a set of related routes, and minimize repetitive code. For example, we may choose to group a set of routes that manage interactions with a customer entity under the route /customers. In that case, we could specify the path prefix customers in the `@Controller()` decorator so that we don't have to repeat that portion of the path for each route in the file.
 
 
-The `constructor(public todoService: TodoService)` uses Dependency Injection. Danet is built around this strong design pattern. We recommend reading a great article about this concept in the official Angular documentation.
+The `constructor(public todoService: TodoService)` uses **Dependency Injection**. Danet is built around this strong design pattern. We recommend reading a great article about this concept in the official Angular documentation.
 
 ### src/todo/service.ts
 
 
 {% gist b85e0fd8bbec4c8fb58156b1ce522de1 %}
 
-This service, which is automatically injected into TodoController thanks to the @Injectabledecorator , contains all our business logic.
-For simplicity's sake, it only stores Todos in memory. However, for your real projects, storage should be handled by a todoRepositoryclass injected into TodoService
-src/todo/module.ts
+This service, which is automatically injected into `TodoController` thanks to the `@Injectabledecorator`, contains all our business logic.
+For simplicity's sake, it only stores Todos in memory. However, for your real projects, storage should be handled by a `todoRepository` class injected into `TodoService`.
 
-A module is a class annotated with a `@Module()` decorator. The `@Module()` decorator provides metadata that Danet makes use of to organize the application structure.
+### src/todo/module.ts
+
+A module is a class annotated with a `@Module()` decorator. The `@Module()` decorator provides metadata that **Danet** makes use of to organize the application structure.
 The `@Module()` decorator takes a single object whose properties describe the module:
 
 - `injectables` the injectables that will be instantiated by the Danet injector and that may be shared at least across this module
@@ -189,23 +190,24 @@ You are right pal, let's talk about 
 
 A guard is a class annotated with the @Injectable() decorator, which implements the AuthGuard interface.
 
-Guards have a single responsibility. They determine whether a given request will be handled by the route handler or not, depending on certain conditions (like permissions, roles, ACLs, etc.) present at run-time. This is often referred to as authorization.
+Guards have a **single responsibility**. They determine whether a given request will be handled by the route handler or not, depending on certain conditions (like permissions, roles, ACLs, etc.) present at run-time. This is often referred to as **authorization**.
 
 
 Here is an over simplified example of a guard : 
 
 The logic inside the validateRequest() function can be as simple or sophisticated as needed. The main point of this example is to show how guards fit into the request/response cycle.
 
-Every guard must implement a canActivate() function. This function should return a boolean, indicating whether the current request is allowed or not. It can return the response either synchronously or asynchronously via a Promise.
+Every guard must implement a canActivate() function. This function should **return a boolean**, indicating whether the current request is allowed or not. It can return the response either synchronously or asynchronously via a Promise.
 
 Danet uses the return value to control the next action:
 if it returns true, the request will be processed.
 if it returns false, Danet will deny the request.
 
-Guards can be attached to a Controller, a Method/Route, or even registered as global guards (that will be used for EVERY ROUTE).
+Guards can be attached to a **Controller**, a **Method/Route**, or even registered as global guards (that will be used for **EVERY ROUTE**).
 
-To attach it to our TodoController we just need to use @UseGuardsdecorator as following : 
-```
+To attach it to our TodoController we just need to use `@UseGuardsdecorator` as following:
+
+```ts
 @Controller('todo')
 @UseGuards(SimpleGuard) 
 export class TodoController {
@@ -213,9 +215,9 @@ export class TodoController {
 }
 ```
 
-You can set up a global guard by providing it to the AppModulethe following way :
+You can set up a global guard by providing it to the `AppModule` the following way :
 
-```
+```ts
  import { Module, AuthGuard, GLOBAL_GUARD } from 'https://deno.land/x/danet/mod.ts';
 @Module({
   providers: [new TokenInjector(SimpleGuard, GLOBAL_GUARD)],
