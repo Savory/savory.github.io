@@ -72,6 +72,7 @@ The easiest way to start a Danet's project is to clone the starter project from 
 The starter project is a simple in-memory REST API for a to-do list.
 
 Here is how the project looks:
+
 ![deno-start-tree.png]({{site.baseurl}}/assets/images/deno-start-tree.png)
 
 
