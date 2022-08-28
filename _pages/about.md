@@ -2,7 +2,47 @@
 permalink: /about/
 title: "About"
 ---
+Savory aim to be an eco-system built around our web framework [ **Danet**](https://github.com/Savory/Danet).
 
-Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
+Danet is a framework heavily inspired by a NodeJS Framework called
+[Nest](https://docs.nestjs.com/). We aim to provide the same efficiency, but in
+[Deno](https://deno.land/). Of course, Nest is way more mature, think of it as a
+hero that we look up to.
 
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+We borrow a lot from it, including documentation and sentences on this page, so
+please, definitely check it out because they deserve a lot of credit. Without
+Nest, we wouldn't be developing Danet.
+
+Danet is a framework for building efficient, scalable Deno server-side
+applications. It is entirely build with Typescript.
+
+Under the hood, Danet makes use of [Oak](https://github.com/oakserver/oak). We
+might support other HTTP Web Framework in the future !
+
+We abstract a lot of things so you can focus on your core business and
+architecture.
+
+## Philosophy
+
+Deno is a relatively new engine. Nest was one of the greatest framework to
+improve the architecture of NodeJS project. We want to bring the same level of
+pro-efficiency and professionalism into Deno's world.
+
+Exactly like Nest, Danet provides an out-of-the-box application architecture
+which allows developers and teams to create highly testable, scalable, loosely
+coupled, and easily maintainable applications.
+
+The architecture is the same as our hero, and it was originally heavily inspired
+by Angular.
+
+## Come with us on this awesome journey
+
+We always welcome contributors, feel free to submit a new feature or report a
+bug on our [Github Repository](https://github.com/Savory/Danet) and
+[join our discord](https://discord.gg/Q7ZHuDPgjA)
+
+## How to start
+
+Check out our [starter repository](https://github.com/Savory/Danet-Starter)
+
+[Read our documentation](https://savory.github.io/Danet/)
