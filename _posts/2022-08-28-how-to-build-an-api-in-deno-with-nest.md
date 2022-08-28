@@ -80,6 +80,8 @@ We will go through each file's content except for `LICENSE`, `README` and `todo.
 
 ### src/deps.ts
 
+{% gist d3b0c98252b17744942757abdbfcff3c %}
+
 In Deno, it's best to provide our dependency version number in our code, as there is no external file that lists our dependencies.
 
 This file export our third-party dependencies. In our code, when we will need something from danet , we will import it from deps.ts .
@@ -88,10 +90,15 @@ If we ever need to upgrade a dependency, we change the version number in deps.ts
 
 ### src/todo/class.ts
 
+{% gist 1422e15c4934872cbfb841e484241a47 %}
+
 Simplest file, we define our Todo class.
 
 
 ### src/todo/controller.ts
+
+
+{% gist 2ccdbfce179625283cc206c1057d22c9 %}
 
 Controllers are responsible for handling incoming requests and returning responses to the client.
 
@@ -105,6 +112,9 @@ We use the `@Controller()` decorator, which is required to define a basic contro
 The `constructor(public todoService: TodoService)` uses Dependency Injection. Danet is built around this strong design pattern. We recommend reading a great article about this concept in the official Angular documentation.
 
 ### src/todo/service.ts
+
+
+{% gist b85e0fd8bbec4c8fb58156b1ce522de1 %}
 
 This service, which is automatically injected into TodoController thanks to the @Injectabledecorator , contains all our business logic.
 For simplicity's sake, it only stores Todos in memory. However, for your real projects, storage should be handled by a todoRepositoryclass injected into TodoService
@@ -125,10 +135,16 @@ Our application being fairly simple, we only have `TodoController` and `TodoServ
 
 ### src/app.module.ts
 
+
+{% gist e411daa9b33253efd5af0115a431e12b %}
+
 The AppModule import all modules you want your application to use. In our case, `TodoModule` is sufficient.
 
 
 ### src/bootstrap.ts
+
+
+{% gist 06131f71a011942a3243e5125f56438e %}
 
 The bootstrapfunction create a `DanetApplication` instance and initialize it with our `AppModule` . Behind the scene, it resolves and injects dependencies; creates route handle etc….
 
@@ -136,12 +152,16 @@ The bootstrapfunction create a `DanetApplication` instance and initialize it wit
 
 ### run.ts
 
+{% gist b1230abb98fd836f35075e1c354a91dc %}
+
 It is the entry point of our app. This file is executed by Deno when we execute the launch-server task defined in deno.json .
 
 `bootstrap` function create a `DanetApplication` instance, and we call listen method to listen (not very explicit I know /s) on a given port either from env or default to 3000 (no specific reason).
 
 
 ### deno.json
+
+{% gist 674324699d1a5f09908660ec5d521aef %}
 
 Deno's configuration file.
 
@@ -195,7 +215,8 @@ export class TodoController {
 
 You can set up a global guard by providing it to the AppModulethe following way :
 
- ```import { Module, AuthGuard, GLOBAL_GUARD } from 'https://deno.land/x/danet/mod.ts';
+```
+ import { Module, AuthGuard, GLOBAL_GUARD } from 'https://deno.land/x/danet/mod.ts';
 @Module({
   providers: [new TokenInjector(SimpleGuard, GLOBAL_GUARD)],
 })
