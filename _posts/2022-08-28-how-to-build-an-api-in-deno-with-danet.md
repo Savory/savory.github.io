@@ -120,6 +120,9 @@ For simplicity's sake, it only stores Todos in memory. However, for your real pr
 
 ### src/todo/module.ts
 
+
+{% gist 4338ca7300d6ef5935aead33a474c578 %}
+
 A module is a class annotated with a `@Module()` decorator. The `@Module()` decorator provides metadata that **Danet** makes use of to organize the application structure.
 The `@Module()` decorator takes a single object whose properties describe the module:
 
