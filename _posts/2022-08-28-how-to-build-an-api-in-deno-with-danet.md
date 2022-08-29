@@ -1,5 +1,6 @@
 ---
 published: true
+title: How to build an API in Deno with Danet
 ---
 
 Welcome, take a seat, and keep your keyboard at hand because today we are building a REST API in Deno using Danet. In the end, we'll also show you how to handle authentication.
