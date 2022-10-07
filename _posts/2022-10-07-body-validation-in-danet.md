@@ -3,12 +3,11 @@ published: true
 title: Body validation in Danet
 ---
 
-Welcome ! Last time, we saw [how to create a REST API in Deno using Danet]({{site.baseurl}}{% post_url 2022-08-28-how-to-build-an-api-in-deno-with-danet %}). Today, we will add Body validation to it.
-
 ![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
 
+Welcome ! Last time, we saw [how to create a REST API in Deno using Danet]({{site.baseurl}}{% post_url 2022-08-28-how-to-build-an-api-in-deno-with-danet %}). Today, we will add Body validation to it.
 
-In order to add Body validation to your app, simply add `@Decorators` from [our validatte package](https://github.com/Savory/validatte) to your classes !
+In order to do that simply add `@Decorators` from [our validatte package](https://github.com/Savory/validatte) to your classes !
 
 Let's look at the `todo.controller.ts` :
 
