@@ -54,3 +54,7 @@ If `validateObject` returns errors, an HTTP 400 BadRequest is thrown with explic
 ```
 
 Well, that's it folks ! It wasn't hard, now you know !
+
+To learn more about Danet, check out our documentation : [https://savory.github.io/Danet/](https://savory.github.io/Danet/)
+
+And the GitHub repository if you want to contribute : [https://github.com/Savory/Danet](https://github.com/Savory/Danet)
