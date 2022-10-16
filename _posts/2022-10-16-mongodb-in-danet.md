@@ -1,6 +1,6 @@
 ---
 published: true
-title: Use mongodb in Deno with Danet
+title: Use Mongodb in Deno with Danet
 excerpt: Get ready to use MongoDB in Danet in few minutes !
 ---
 
