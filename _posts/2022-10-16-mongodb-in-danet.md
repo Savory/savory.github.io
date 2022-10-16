@@ -37,7 +37,7 @@ Now, we need to create a `DatabaseModule` to keep our code clean :
 Import this module in any module that need your newly created `MongoDBService`, and use it wherever you need.
 
 
-Here is a simplified code from of our [Starter Repository](https://github.com/Savory/Danet-Starter) that contain all the necessary code to work MongoDB AND Postgres seamlessly:
+Here is a simplified code from of our [Starter Repository](https://github.com/Savory/Danet-Starter) that contains all the necessary code to work with MongoDB AND Postgres seamlessly:
 
 ```ts
 export class MongodbRepository implements Repository<Todo> {

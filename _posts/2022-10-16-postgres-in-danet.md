@@ -36,7 +36,7 @@ Now, we need to create a `DatabaseModule` to keep our code clean :
 
 Import this module in any module that need your newly created `PostgresService`, and use it wherever you need.
 
-Here is a simplified code from of our [Starter Repository](https://github.com/Savory/Danet-Starter) that contain all the necessary code to work Postgres AND MongoDb seamlessly: 
+Here is a simplified code from of our [Starter Repository](https://github.com/Savory/Danet-Starter) that contains all the necessary code to work with Postgres AND MongoDb seamlessly: 
 
 ```ts
 import { PostgresService } from "../database/postgresService.ts";
