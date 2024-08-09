@@ -68,7 +68,7 @@ If you are starting a fresh project, you do not even have to do any of this. Ans
 
 Well, that's it folks ! It wasn't hard, now you know !
 
-The same package handles Deno KV, and we will cover Postgres in a future article since it plays by slightly different rules.
+The same package handles Deno KV. To learn how to use Postgres in Danet, check [this article out]({{site.baseurl}}{% post_url 2024-08-09-postgres-in-danet-v2 %}) — it plays by slightly different rules.
 
 To learn more about Danet, check out our documentation : [https://danet.land](https://danet.land)
 
