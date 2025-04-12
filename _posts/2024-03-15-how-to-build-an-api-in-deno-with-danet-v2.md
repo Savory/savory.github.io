@@ -389,7 +389,7 @@ import { SimpleAuthGuard } from './simple-auth-guard.ts';
 export class AppModule {}
 ```
 
-If you wrote this in V1, you remember `new TokenInjector(SimpleGuard, GLOBAL_GUARD)`. That's gone, custom injectables are plain objects now.
+If you wrote this in V1, you remember `new TokenInjector(SimpleGuard, GLOBAL_GUARD)`. That still works, and you will still find it in the generated project, but it is deprecated : prefer the plain object above.
 
 That's it folks !
 
