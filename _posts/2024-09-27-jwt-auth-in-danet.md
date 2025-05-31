@@ -148,7 +148,7 @@ export class AuthController {
 }
 ```
 
-Notice how the failure modes flipped. Forget `@UseGuard` and you ship an unprotected endpoint that behaves perfectly in testing. Forget `@Public()` and your login route returns a denial on the first request anyone makes — annoying, obvious, fixed in a minute. Always choose the mistake that is loud.
+Notice how the failure modes flipped. Forget `@UseGuard` and you ship an unprotected endpoint that behaves perfectly in testing. Forget `@Public()` and your login route returns a denial on the first request anyone makes. Annoying, obvious, fixed in a minute. Always choose the mistake that is loud.
 
 ## Trying it out
 
