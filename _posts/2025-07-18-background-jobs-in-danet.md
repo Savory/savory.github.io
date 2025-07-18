@@ -1,7 +1,7 @@
 ---
 published: true
 title: Cron jobs and queues in Danet
-excerpt: Every API eventually needs two more things : something that runs at 3am, and something that runs later. Deno ships both natively, Danet puts a decorator on them.
+excerpt: "Every API eventually needs two more things : something that runs at 3am, and something that runs later. Deno ships both natively, Danet puts a decorator on them."
 ---
 
 ![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
