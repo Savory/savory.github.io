@@ -1,3 +1,112 @@
 <script data-goatcounter="https://savory.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 <link rel="shortcut icon" type="image/png" href="/assets/images/danet-logo.svg">
+
+<meta name="theme-color" content="#0e131d">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<script>
+  // Copy-to-clipboard on code blocks, and a reading-progress bar on posts.
+  // Both are progressive enhancements: nothing here is needed to read the
+  // page, so it all runs after parse and fails silently.
+  (function () {
+    'use strict';
+
+    function addCopyButtons() {
+      var blocks = document.querySelectorAll('.page__content div.highlighter-rouge');
+
+      Array.prototype.forEach.call(blocks, function (block) {
+        var code = block.querySelector('code');
+        if (!code) return;
+
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'code-copy';
+        button.textContent = 'Copy';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+
+        var resetTimer = null;
+
+        button.addEventListener('click', function () {
+          var done = function (ok) {
+            button.textContent = ok ? 'Copied' : 'Failed';
+            button.setAttribute('data-copied', ok ? 'true' : 'false');
+            // Without this, a second click restarts the label while the first
+            // click's timer is still pending, and that timer clears the label
+            // early.
+            clearTimeout(resetTimer);
+            resetTimer = setTimeout(function () {
+              button.textContent = 'Copy';
+              button.removeAttribute('data-copied');
+            }, 2000);
+          };
+
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(code.innerText).then(
+              function () { done(true); },
+              function () { done(false); }
+            );
+          } else {
+            done(false);
+          }
+        });
+
+        // Sit in the filename header when there is one, so the button never
+        // covers the first line of code.
+        var header = block.previousElementSibling;
+        if (header && header.classList.contains('code-file')) {
+          header.appendChild(button);
+        } else {
+          block.appendChild(button);
+        }
+      });
+    }
+
+    function addReadingProgress() {
+      var content = document.querySelector('.page__content');
+      if (!content || !document.body.classList.contains('layout--single')) return;
+
+      var track = document.createElement('div');
+      track.className = 'reading-progress';
+      var bar = document.createElement('div');
+      bar.className = 'reading-progress__bar';
+      track.appendChild(bar);
+      document.body.appendChild(track);
+
+      var ticking = false;
+      function update() {
+        var start = content.offsetTop;
+        var distance = content.offsetHeight - window.innerHeight;
+        var progress = distance <= 0
+          ? 1
+          : (window.pageYOffset - start) / distance;
+        bar.style.width = Math.min(100, Math.max(0, progress * 100)) + '%';
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          ticking = true;
+          window.requestAnimationFrame(update);
+        }
+      }, { passive: true });
+
+      update();
+    }
+
+    function init() {
+      try { addCopyButtons(); } catch (e) {}
+      try { addReadingProgress(); } catch (e) {}
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  }());
+</script>

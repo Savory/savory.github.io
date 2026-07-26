@@ -1,0 +1,246 @@
+/* ==========================================================================
+   Post list
+
+   The theme renders the archive as headings separated by whitespace, which
+   gives a reader no sense of where one post ends and the next begins. These
+   turn each entry into a card with a single obvious click target.
+   ========================================================================== */
+
+.archive {
+  padding-bottom: 2rem;
+}
+
+/* The theme reserves a right sidebar's worth of padding on every archive,
+   including the listing pages that have no sidebar — which is why the post
+   list sat in a narrow column with a third of the page empty beside it.
+   Reclaim the space and cap the column at a readable measure instead. */
+.layout--home,
+.layout--posts,
+.layout--categories,
+.layout--category,
+.layout--tags,
+.layout--tag {
+  .archive {
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoint($large) {
+      width: 100%;
+      max-width: 48rem;
+    }
+
+    @include breakpoint($x-large) {
+      width: 100%;
+      max-width: 48rem;
+      padding-right: 0;
+    }
+  }
+}
+
+.archive__subtitle {
+  margin: 0 0 1rem;
+  padding-bottom: 0.45rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $savory-muted;
+  border-bottom: 1px solid $savory-border;
+}
+
+.post-card {
+  position: relative;
+  margin-bottom: 0.65rem;
+  padding: 1rem 1.15rem;
+  background-color: rgba($savory-surface, 0.55);
+  border: 1px solid $savory-border;
+  border-radius: 12px;
+  transition: border-color 0.18s ease, background-color 0.18s ease,
+    transform 0.18s ease;
+
+  &:hover {
+    background-color: $savory-surface;
+    border-color: mix($danet-blue, $savory-border, 45%);
+    transform: translateY(-2px);
+  }
+
+  .archive__item-title {
+    margin: 0 0 0.25rem;
+    font-size: 1.12rem;
+    font-weight: 650;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+
+    a {
+      color: mix(#fff, $savory-text, 40%);
+      text-decoration: none;
+
+      /* Stretch the title link over the whole card so the entire surface is
+         clickable, without nesting interactive elements. */
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+      }
+    }
+  }
+
+  &:hover .archive__item-title a {
+    color: $danet-blue;
+  }
+
+  .archive__item-excerpt {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: $savory-muted;
+  }
+}
+
+.post-card__meta {
+  margin: 0 0 0.45rem;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: $savory-muted;
+
+  time {
+    color: inherit;
+  }
+}
+
+.post-card__meta-sep {
+  margin: 0 0.45em;
+  opacity: 0.5;
+}
+
+.post-card__more {
+  display: inline-block;
+  margin-top: 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: $danet-green;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  /* The transform above creates a stacking context, which paints this span
+     over the title link's stretched ::after overlay and swallows the click.
+     It is a label, not a control — let the pointer through to the link. */
+  pointer-events: none;
+}
+
+.post-card:hover .post-card__more,
+.post-card:focus-within .post-card__more {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.post-card:focus-within {
+  outline: 2px solid $danet-blue;
+  outline-offset: 3px;
+}
+
+/* On touch there is no hover to reveal it, so it would only ever be dead
+   space at the bottom of every card. */
+@media (hover: none) {
+  .post-card__more {
+    display: none;
+  }
+}
+
+/* Related posts grid ------------------------------------------------------ */
+
+/* The same card markup is reused for the "you may also enjoy" grid, where the
+   theme gives each item 25% of the width. At that size the titles truncate
+   mid-word. Two columns and tighter type make them readable. */
+.page__related {
+  .grid__wrapper {
+    display: grid;
+    gap: 0.9rem;
+    margin-right: 0;
+
+    @include breakpoint($medium) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .grid__item {
+    width: 100%;
+    float: none;
+    margin: 0;
+    padding: 0;
+    clear: none;
+  }
+
+  .post-card {
+    height: 100%;
+    margin-bottom: 0;
+    padding: 1.1rem 1.2rem;
+
+    .archive__item-title {
+      font-size: 1.02rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .archive__item-excerpt {
+      font-size: 0.87rem;
+      line-height: 1.55;
+      /* Keep every card the same height regardless of excerpt length. */
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  /* No room for the affordance in a small card, and the whole card is already
+     a link. */
+  .post-card__more {
+    display: none;
+  }
+
+  .post-card__meta {
+    margin-bottom: 0.5rem;
+    font-size: 0.74rem;
+  }
+}
+
+/* Pagination ------------------------------------------------------------- */
+
+.pagination {
+  margin-top: 2.5rem;
+
+  ul {
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  li a {
+    border: 1px solid $savory-border;
+    border-radius: 8px;
+    background-color: rgba($savory-surface, 0.6);
+    color: $savory-muted;
+    font-size: 0.85rem;
+    font-weight: 500;
+
+    &:hover {
+      background-color: $savory-surface-high;
+      border-color: mix($danet-blue, $savory-border, 45%);
+      color: $savory-text;
+    }
+  }
+
+  li a.current,
+  li a.current:hover {
+    background-color: rgba($danet-green, 0.14);
+    border-color: rgba($danet-green, 0.5);
+    color: $danet-green;
+  }
+
+  li a.disabled {
+    opacity: 0.35;
+  }
+}

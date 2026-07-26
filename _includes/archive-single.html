@@ -1,0 +1,46 @@
+{%- comment -%}
+  Overrides the minimal-mistakes include of the same name.
+
+  Two changes: the whole item is a card rather than a bare heading plus
+  paragraph, and the meta line carries the publication date. The series spans
+  2022 to today and leans on "last time we saw…" continuity, so a reader
+  landing on the list needs to know where in time a post sits.
+{%- endcomment -%}
+
+{% assign locale = include.locale | default: site.locale %}
+
+{% if post.id %}
+  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign title = post.title %}
+{% endif %}
+
+<div class="{{ include.type | default: 'list' }}__item">
+  <article class="archive__item post-card" itemscope itemtype="https://schema.org/CreativeWork"{% if post.locale %} lang="{{ post.locale }}"{% endif %}>
+    <h2 class="archive__item-title no_toc p-name" itemprop="headline">
+      <a class="u-url" href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+    </h2>
+
+    <p class="post-card__meta">
+      {% if post.date %}
+        <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%B %-d, %Y" }}
+        </time>
+      {% endif %}
+      {% if site.read_time or post.read_time %}
+        {% assign words_per_minute = site.words_per_minute | default: 200 %}
+        {% assign words = post.content | strip_html | number_of_words %}
+        <span class="post-card__meta-sep" aria-hidden="true">·</span>
+        <span class="post-card__readtime">
+          {% if words < words_per_minute %}1{% else %}{{ words | divided_by: words_per_minute }}{% endif %} min read
+        </span>
+      {% endif %}
+    </p>
+
+    {% if post.excerpt %}
+      <p class="archive__item-excerpt p-summary" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 180 }}</p>
+    {% endif %}
+
+    <span class="post-card__more" aria-hidden="true">Read article →</span>
+  </article>
+</div>

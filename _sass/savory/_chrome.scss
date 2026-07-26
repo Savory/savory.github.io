@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Site chrome — masthead and footer
+   ========================================================================== */
+
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: rgba($savory-bg, 0.82);
+  backdrop-filter: saturate(150%) blur(12px);
+  -webkit-backdrop-filter: saturate(150%) blur(12px);
+  border-bottom: 1px solid $savory-border;
+
+  &__inner-wrap {
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+  }
+}
+
+/* `.greedy-nav a` sets display:block at (0,2,0), so the class alone loses. */
+.greedy-nav a.site-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: mix(#fff, $savory-text, 50%);
+  text-decoration: none;
+
+  /* The Danet dino, drawn as a mark next to the wordmark. */
+  &::before {
+    content: "";
+    display: block;
+    flex: 0 0 auto;
+    width: 26px;
+    height: 26px;
+    background-image: url("/assets/images/danet-logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.greedy-nav {
+  background: transparent;
+
+  a {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: $savory-muted;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $savory-text;
+    }
+  }
+
+  .visible-links a::before {
+    height: 2px;
+    background: $danet-green;
+  }
+
+  button {
+    background-color: transparent;
+  }
+
+  .hidden-links {
+    background: $savory-surface-high;
+    border: 1px solid $savory-border;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(#000, 0.4);
+
+    a:hover {
+      background: rgba($danet-blue, 0.1);
+      color: $savory-text;
+    }
+
+    &::before {
+      border-bottom-color: $savory-border;
+    }
+
+    &::after {
+      border-bottom-color: $savory-surface-high;
+    }
+  }
+}
+
+/* Search ----------------------------------------------------------------- */
+
+.search__toggle {
+  color: $savory-muted;
+
+  &:hover {
+    color: $danet-green;
+  }
+}
+
+.search-content {
+  background-color: $savory-bg;
+  border-bottom: 1px solid $savory-border;
+
+  .search-input {
+    background-color: transparent;
+    color: $savory-text;
+  }
+}
+
+.search-content__inner-wrap {
+  .archive__item-title {
+    margin-top: 1rem;
+  }
+}
+
+/* Footer ----------------------------------------------------------------- */
+
+.page__footer {
+  margin-top: 2.5rem;
+  background-color: $footer-background-color;
+  border-top: 1px solid $savory-border;
+  color: $savory-muted;
+
+  footer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  a {
+    color: $savory-muted;
+    text-decoration: none;
+
+    &:hover {
+      color: $danet-green;
+      text-decoration: underline;
+    }
+  }
+}
+
+.page__footer-follow {
+  .social-icons a:hover {
+    color: $danet-green;
+  }
+}
+
+/* Skip links ------------------------------------------------------------- */
+
+.skip-link {
+  background-color: $savory-surface-high;
+
+  a {
+    color: $savory-text;
+  }
+}

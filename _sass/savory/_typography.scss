@@ -1,0 +1,178 @@
+/* ==========================================================================
+   Typography and reading experience
+
+   These posts are long-form tutorials read top to bottom, so the priorities
+   are a comfortable measure, a clear heading hierarchy, and prose that does
+   not compete with the code blocks sitting inside it.
+   ========================================================================== */
+
+/* The theme ramps the root font from 16px up to 22px as the viewport widens,
+   and every em in the stylesheet rides on it. At 22px a 27" screen shows about
+   a third of a section at a time. Hold it near 16px so a wide window buys more
+   content rather than bigger letters. */
+html {
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+
+  @include breakpoint($medium) {
+    font-size: 16px;
+  }
+
+  @include breakpoint($large) {
+    font-size: 16.5px;
+  }
+
+  @include breakpoint($x-large) {
+    font-size: 17px;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+.page__content {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: $savory-text;
+
+  p {
+    /* ~72 characters. Long enough not to fragment the short paragraphs the
+       house style favours, short enough to keep the return sweep easy. */
+    max-width: 72ch;
+    margin: 0 0 1.05em;
+  }
+
+  ul,
+  ol {
+    max-width: 72ch;
+    margin-bottom: 1.05em;
+
+    li {
+      margin-bottom: 0.3em;
+    }
+  }
+
+  /* Headings ------------------------------------------------------------ */
+
+  h1, h2, h3, h4, h5, h6 {
+    color: mix(#fff, $savory-text, 45%);
+    font-weight: 650;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
+
+  h2 {
+    margin: 1.7em 0 0.6em;
+    padding-bottom: 0.28em;
+    border-bottom: 1px solid $savory-border;
+  }
+
+  h3 {
+    margin: 1.4em 0 0.5em;
+  }
+
+  h4 {
+    margin: 1.2em 0 0.45em;
+  }
+
+  /* The theme underlines every heading link on hover; anchors are enough. */
+  h2 a, h3 a, h4 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Links --------------------------------------------------------------- */
+
+  a:not(.btn) {
+    color: $link-color;
+    text-decoration: underline;
+    text-decoration-color: rgba($danet-blue, 0.4);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+
+    &:hover {
+      color: $link-color-hover;
+      text-decoration-color: currentColor;
+    }
+  }
+
+  /* Blockquote ----------------------------------------------------------- */
+
+  /* The series uses a blockquote for its fake-reader interjection:
+       > But Thomas, you told us we were going to see …
+     It is a voice change, not a citation, so it gets the brand green. */
+  blockquote {
+    max-width: 72ch;
+    margin: 1.3em 0;
+    padding: 0.15em 0 0.15em 1.1em;
+    color: mix(#fff, $savory-muted, 25%);
+    font-style: italic;
+    border-left: 3px solid rgba($danet-green, 0.55);
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* Tables --------------------------------------------------------------- */
+
+  table {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.6em;
+    font-size: 0.92em;
+    border-color: $savory-border;
+    overflow-x: auto;
+  }
+
+  th {
+    background-color: $savory-surface-high;
+    border-color: $savory-border;
+    color: mix(#fff, $savory-text, 30%);
+  }
+
+  td {
+    border-color: $savory-border;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: rgba($savory-surface, 0.5);
+  }
+
+  /* Images --------------------------------------------------------------- */
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  hr {
+    margin: 1.8em 0;
+    border: 0;
+    border-top: 1px solid $savory-border;
+  }
+}
+
+/* Selection ------------------------------------------------------------- */
+
+::selection {
+  background-color: rgba($danet-green, 0.25);
+  color: #fff;
+}
+
+/* Anyone who asked their OS to stop animating things means it. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

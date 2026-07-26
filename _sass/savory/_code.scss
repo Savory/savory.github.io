@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Code blocks
+
+   Markup comes out of _plugins/code_filename.rb as two sibling elements:
+
+     <div class="code-file">src/app.module.ts</div>
+     <div class="language-ts highlighter-rouge"> … </div>
+
+   The rules below glue them into one object — header tab on top, code body
+   below, a single border around the pair. Blocks with no filename just skip
+   the header and round all four corners.
+   ========================================================================== */
+
+$code-radius: 8px;
+
+/* Inline ----------------------------------------------------------------- */
+
+p code,
+li code,
+td code,
+h1 code, h2 code, h3 code, h4 code {
+  padding: 0.15em 0.4em;
+  margin: 0;
+  font-size: 0.875em;
+  background-color: rgba($danet-blue, 0.1);
+  border: 1px solid rgba($danet-blue, 0.16);
+  border-radius: 4px;
+  color: mix(#fff, $danet-blue, 20%);
+  /* The theme adds side margins here, which makes inline code drift away
+     from the punctuation that follows it. */
+  word-break: break-word;
+}
+
+a code {
+  color: inherit;
+  border-color: transparent;
+}
+
+/* Filename header -------------------------------------------------------- */
+
+.code-file {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  margin: 1.1em 0 0;
+  padding: 0.4em 0.85em;
+  font-family: $monospace;
+  font-size: 0.76em;
+  line-height: 1.4;
+  color: $savory-muted;
+  background-color: $savory-surface-high;
+  border: 1px solid $savory-border;
+  border-bottom: 0;
+  border-radius: $code-radius $code-radius 0 0;
+  word-break: break-all;
+
+  /* A small brand-green dot, so the eye catches the file boundary when
+     scanning a long article of stacked snippets. */
+  &::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 7px;
+    height: 7px;
+    background-color: $danet-green;
+    border-radius: 50%;
+    opacity: 0.8;
+  }
+}
+
+/* Code body -------------------------------------------------------------- */
+
+div.highlighter-rouge,
+figure.highlight {
+  position: relative;
+  margin: 1.1em 0;
+  background-color: $savory-surface;
+  border: 1px solid $savory-border;
+  border-radius: $code-radius;
+  box-shadow: none;
+
+  pre.highlight,
+  pre {
+    margin: 0;
+    padding: 0.75em 0.9em;
+    background: transparent;
+    border: 0;
+    overflow-x: auto;
+  }
+
+  code {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font-family: $monospace;
+    font-size: 0.8em;
+    line-height: 1.5;
+    -webkit-font-smoothing: auto;
+  }
+}
+
+/* Joined to a filename header. */
+.code-file + div.highlighter-rouge {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Copy button ------------------------------------------------------------ */
+
+.code-copy {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  z-index: 2;
+  padding: 0.3em 0.6em;
+  font-family: $sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: $savory-muted;
+  background-color: rgba($savory-bg, 0.85);
+  border: 1px solid $savory-border;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+  &:focus-visible {
+    opacity: 1;
+    outline: 2px solid $danet-blue;
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    color: $savory-text;
+    border-color: mix($danet-blue, $savory-border, 40%);
+  }
+
+  &[data-copied="true"] {
+    color: $danet-green;
+    border-color: rgba($danet-green, 0.5);
+  }
+}
+
+/* The header is the hover target when there is one, the code body otherwise. */
+.code-file:hover .code-copy,
+.code-file:focus-within .code-copy,
+div.highlighter-rouge:hover .code-copy,
+div.highlighter-rouge:focus-within .code-copy {
+  opacity: 1;
+}
+
+.code-file .code-copy {
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+}
+
+/* Touch devices have no hover, so never hide the button there. */
+@media (hover: none) {
+  .code-copy {
+    opacity: 1;
+  }
+}
+
+/* Syntax ----------------------------------------------------------------- */
+
+.highlight {
+  color: $savory-text;
+
+  .c, .cd, .cm, .c1, .cs { color: #5d6b85; font-style: italic; } // comment
+  .err { color: #ff8b8b; }
+  .k, .kc, .kd, .kn, .kp, .kr, .kt, .kv { color: #c9a2ff; } // keyword
+  .o, .ow { color: #9db2d4; }                               // operator
+  .p, .pi { color: #7f8ca6; }                               // punctuation
+  .n, .nx, .nv, .vc, .vg, .vi { color: $savory-text; }      // name
+  .na { color: $danet-green; }                              // attribute
+  .nb, .bp { color: $danet-blue; }                          // builtin
+  .nc, .nn { color: #ffd479; }                              // class, namespace
+  .nd { color: $danet-green; }                              // decorator
+  .nf, .fm { color: #7fd3ff; }                              // function
+  .nt { color: $danet-blue; }                               // tag, shell flag
+  .no, .nl { color: #ffd479; }
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sr, .ss, .sx, .dl {
+    color: $danet-green;                                    // string
+  }
+  .m, .mb, .mf, .mh, .mi, .mo, .mx, .il { color: #ffb86b; } // number
+  .gd { color: #ff8b8b; background-color: rgba(#ff8b8b, 0.1); }
+  .gi { color: $danet-green; background-color: rgba($danet-green, 0.1); }
+  .gh, .gu { color: $savory-muted; }
+  .gs { font-weight: 600; }
+  .ge { font-style: italic; }
+}
+
+/* Scrollbars — the default macOS overlay bar is invisible on dark surfaces
+   until you scroll, which hides the fact that a line runs long. */
+div.highlighter-rouge pre {
+  scrollbar-width: thin;
+  scrollbar-color: $savory-border transparent;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $savory-border;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}

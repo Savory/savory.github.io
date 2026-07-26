@@ -7,3 +7,10 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+// Savory overrides — loaded last so they win on equal specificity.
+@import "savory/typography";
+@import "savory/code";
+@import "savory/archive";
+@import "savory/post";
+@import "savory/chrome";

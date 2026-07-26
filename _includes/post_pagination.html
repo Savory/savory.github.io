@@ -1,0 +1,23 @@
+{%- comment -%}
+  Overrides the minimal-mistakes include of the same name.
+
+  The theme's version renders two buttons labelled only "Previous" and "Next",
+  which tells a reader nothing about where they are going. Posts here form a
+  series in chronological order, so showing the neighbouring titles turns this
+  into real series navigation.
+{%- endcomment -%}
+
+{% if page.previous or page.next %}
+  <nav class="pagination pagination--posts" aria-label="Post pagination">
+    {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" rel="prev">
+        {{ page.previous.title | markdownify | strip_html | strip }}
+      </a>
+    {% endif %}
+    {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}" class="pagination--pager" rel="next">
+        {{ page.next.title | markdownify | strip_html | strip }}
+      </a>
+    {% endif %}
+  </nav>
+{% endif %}

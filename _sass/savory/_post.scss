@@ -1,0 +1,228 @@
+/* ==========================================================================
+   Article header, sidebar table of contents, and series navigation
+   ========================================================================== */
+
+/* Header ----------------------------------------------------------------- */
+
+.page__title {
+  margin: 0 0 0.45rem;
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: mix(#fff, $savory-text, 55%);
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@include breakpoint($medium) {
+  .page__title {
+    font-size: 2.15rem;
+  }
+}
+
+.page__meta {
+  margin: 0 0 1.3rem;
+  padding-bottom: 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: $savory-muted;
+  border-bottom: 1px solid $savory-border;
+
+  .page__meta-readtime,
+  .page__meta-date {
+    margin-right: 1rem;
+  }
+
+  i {
+    margin-right: 0.35em;
+    opacity: 0.7;
+  }
+}
+
+/* Reading progress ------------------------------------------------------- */
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  pointer-events: none;
+}
+
+.reading-progress__bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, $danet-blue, $danet-green);
+  transition: width 0.08s linear;
+}
+
+/* Table of contents ------------------------------------------------------ */
+
+/* The single layout leaves the right column empty on these posts. A sticky
+   TOC is the natural tenant: the tutorials are long and section-based. */
+.toc {
+  font-family: $sans-serif;
+  background-color: rgba($savory-surface, 0.6);
+  border: 1px solid $savory-border;
+  border-radius: 12px;
+  box-shadow: none;
+  overflow: hidden;
+
+  /* The theme paints this bar in $primary-color with white text. Brand green
+     is far too light a background for white type — it fails contrast badly
+     and shouts louder than the article title. */
+  .nav__title {
+    background: $savory-surface-high;
+    color: $savory-muted;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 0;
+    border-bottom: 1px solid $savory-border;
+
+    i {
+      display: none;
+    }
+  }
+
+  .toc__menu a {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: $savory-muted;
+    text-decoration: none;
+    border-bottom: 0;
+    border-left: 2px solid transparent;
+    transition: color 0.15s ease, background-color 0.15s ease,
+      border-color 0.15s ease;
+
+    &:hover {
+      color: $savory-text;
+      background-color: rgba($savory-surface-high, 0.8);
+    }
+  }
+
+  .toc__menu li ul > li a {
+    padding-left: 1.7rem;
+    font-size: 0.74rem;
+  }
+
+  /* Scrollspy marks the section you are reading. The theme's yiq-contrasted
+     mixin would repaint this green-on-green. */
+  .toc__menu .active a,
+  .toc__menu a.active {
+    color: $danet-green;
+    background-color: rgba($danet-green, 0.1);
+    border-left-color: $danet-green;
+  }
+}
+
+/* The masthead is sticky, so an anchor jump would otherwise land the heading
+   underneath it. */
+.page__content {
+  h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
+    scroll-margin-top: 4.2rem;
+  }
+}
+
+.sidebar.sticky {
+  top: 4.2rem;
+}
+
+/* Series navigation ------------------------------------------------------ */
+
+/* Chronological order is series order on this blog, so the theme's built-in
+   previous/next post pair doubles as "earlier / later in the series". */
+.pagination--posts {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1.8rem;
+
+  ul {
+    display: none;
+  }
+}
+
+@include breakpoint($medium) {
+  .pagination--posts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* A lone "next" must not slide into the "previous" slot. */
+  .pagination--posts a[rel="next"]:only-child {
+    grid-column: 2;
+  }
+}
+
+.pagination--pager {
+  display: block;
+  width: auto;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: $savory-text;
+  background-color: rgba($savory-surface, 0.55);
+  border: 1px solid $savory-border;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+
+  &:hover {
+    background-color: $savory-surface;
+    border-color: mix($danet-blue, $savory-border, 45%);
+    color: $danet-blue;
+  }
+
+  &.disabled {
+    opacity: 0.3;
+  }
+
+  &::before {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $savory-muted;
+  }
+
+  &[rel="prev"]::before {
+    content: "Previous";
+  }
+
+  &[rel="next"]::before {
+    content: "Next";
+  }
+}
+
+.page__content + .page__meta,
+.page__share {
+  border-top: 1px solid $savory-border;
+}
+
+/* Related posts ---------------------------------------------------------- */
+
+.page__related {
+  border-top: 1px solid $savory-border;
+  padding-top: 1.2rem;
+
+  .page__related-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $savory-muted;
+    border-bottom: 0;
+  }
+}

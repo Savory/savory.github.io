@@ -25,7 +25,7 @@ search: true
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
-minimal_mistakes_skin: "dark"
+minimal_mistakes_skin: "savory"
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
@@ -34,6 +34,15 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  # Working notes, gitignored — but they would still be published from a local
+  # build, and they read as drafts of unpublished articles.
+  - ARTICLE-PLAN.md
+  - ARTICLE-DONE.md
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -95,6 +104,12 @@ defaults:
       comments: true
       share: true
       related: true
+      show_date: true
+      # The tutorials are long and section-based, and the single layout leaves
+      # the right column empty. A sticky TOC is the natural tenant.
+      toc: true
+      toc_sticky: true
+      toc_label: "On this page"
   # _pages
   - scope:
       path: "_pages"

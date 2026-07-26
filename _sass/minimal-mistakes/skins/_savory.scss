@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Savory skin
+
+   Brand colours are lifted straight from the Danet logo: the mint green of
+   the dino and the periwinkle blue of the spoon and the bowl. Everything
+   else is a neutral tuned to sit under them without fighting.
+   ========================================================================== */
+
+/* Brand ------------------------------------------------------------------ */
+
+$danet-green: #78ff96;
+$danet-blue: #8fbcff;
+
+/* Neutrals — a blue-leaning near-black, so the two brand hues read as part
+   of the same family rather than as stickers on a grey card. */
+
+$savory-bg: #0e131d;
+$savory-surface: #161d2b;
+$savory-surface-high: #1d2637;
+$savory-border: #26314a;
+$savory-text: #d7dfec;
+$savory-muted: #8f9cb3;
+
+/* Theme variables -------------------------------------------------------- */
+
+$background-color: $savory-bg !default;
+$text-color: $savory-text !default;
+$muted-text-color: $savory-muted !default;
+$primary-color: $danet-green !default;
+$border-color: $savory-border !default;
+
+$code-background-color: $savory-surface !default;
+$code-background-color-dark: $savory-surface-high !default;
+$form-background-color: $savory-surface !default;
+$footer-background-color: #0a0e16 !default;
+
+/* Blue carries the links, green is saved for accents and emphasis. Green on
+   a dark background at body-text size is loud enough to be tiring. */
+$link-color: $danet-blue !default;
+$link-color-hover: mix(#fff, $danet-blue, 30%) !default;
+$link-color-visited: mix($savory-muted, $danet-blue, 25%) !default;
+
+$masthead-link-color: $savory-text !default;
+$masthead-link-color-hover: $danet-green !default;
+$navicon-link-color-hover: $savory-surface-high !default;
+
+$success-color: $danet-green !default;
+$info-color: $danet-blue !default;
+
+/* Typography ------------------------------------------------------------- */
+
+$sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  "Helvetica Neue", Arial, sans-serif !default;
+$monospace: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace !default;
+$global-font-family: $sans-serif !default;
+$header-font-family: $sans-serif !default;
+$caption-font-family: $sans-serif !default;
+
+/* The theme's default scale is a 1.25 ratio that makes h1 and h2 nearly the
+   same size. Widen the top end so the article title clearly leads. */
+$type-size-1: 2.75em !default;
+$type-size-2: 1.85em !default;
+$type-size-3: 1.4em !default;
+$type-size-4: 1.15em !default;
+
+/* Theme bits that hardcode a colour ------------------------------------- */
+
+.author__urls.social-icons i,
+.author__urls.social-icons .svg-inline--fa,
+.page__footer-follow .social-icons i,
+.page__footer-follow .social-icons .svg-inline--fa {
+  color: inherit;
+}
