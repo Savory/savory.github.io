@@ -4,7 +4,7 @@ title: "Getting the most out of Danet's injector"
 excerpt: "Every article on this blog has done the same thing without explaining it : put a class in injectables, ask for it in a constructor, get an instance. Today we open that box."
 ---
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 Welcome ! Every article on this blog has done the same thing without ever explaining it : put a class in `injectables`, ask for it in a constructor, get an instance back. Today we open that box.
 

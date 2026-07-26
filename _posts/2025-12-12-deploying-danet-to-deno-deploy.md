@@ -4,7 +4,7 @@ title: "Deploying a Danet app to Deno Deploy"
 excerpt: "Your API runs on your machine. Today we put it on the internet : one command first, then a GitHub Action so you never type it again."
 ---
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 Welcome ! Your API runs on your machine. Today we put [the one we built]({{site.baseurl}}{% post_url 2024-03-15-how-to-build-an-api-in-deno-with-danet-v2 %}) on the internet.
 

@@ -4,7 +4,7 @@ title: Cron jobs and queues in Danet
 excerpt: "Every API eventually needs two more things : something that runs at 3am, and something that runs later. Deno ships both natively, Danet puts a decorator on them."
 ---
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 Welcome ! Your API answers requests. Then one day it also has to send the nightly report, and to resize a picture nobody wants to wait for. Today we do both, without adding a single piece of infrastructure.
 

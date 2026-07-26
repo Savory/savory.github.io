@@ -4,7 +4,7 @@ title: Documenting your API with OpenAPI
 excerpt: Your Danet app already serves a Swagger UI. Today we make it say something useful.
 ---
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 Welcome ! At the end of [our body validation article]({{site.baseurl}}{% post_url 2024-05-03-body-validation-in-danet-v2 %}) we promised that both validation styles feed the OpenAPI generator, and that it was a subject for another day. Today is another day.
 

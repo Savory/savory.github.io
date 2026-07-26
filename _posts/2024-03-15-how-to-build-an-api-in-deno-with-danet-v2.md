@@ -6,7 +6,7 @@ excerpt: Welcome, take a seat, and keep your keyboard at hand because today we a
 
 Welcome, take a seat, and keep your keyboard at hand because today we are building a REST API in Deno using Danet. In the end, we'll also show you how to handle authentication.
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 We wrote [this exact article back in 2022]({{site.baseurl}}{% post_url 2022-08-28-how-to-build-an-api-in-deno-with-danet %}). Danet was on V1, we were running on Oak, and we were publishing on `deno.land/x`. None of that is true anymore, so here is the same tutorial, rewritten from scratch for V2.
 

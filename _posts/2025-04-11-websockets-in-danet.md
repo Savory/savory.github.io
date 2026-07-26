@@ -4,7 +4,7 @@ title: WebSockets in Danet
 excerpt: Same controllers, same dependency injection, same guards, same port. Only the transport changes.
 ---
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 Welcome ! Every article we wrote so far was about building a REST API. Danet does more than that, and today we open a WebSocket.
 

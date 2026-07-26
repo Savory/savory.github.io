@@ -5,7 +5,7 @@ title: How to build an API in Deno with Danet
 
 Welcome, take a seat, and keep your keyboard at hand because today we are building a REST API in Deno using Danet. In the end, we'll also show you how to handle authentication.
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 ## What is Deno ?
 Deno is a simple, modern, and secure runtime for JavaScript, TypeScript, and WebAssembly that uses V8 and is built in Rust.

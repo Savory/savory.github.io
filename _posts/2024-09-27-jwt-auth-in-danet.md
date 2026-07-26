@@ -4,7 +4,7 @@ title: Real authentication with JWT guards in Danet
 excerpt: We showed you a guard that checks a Basic auth header. Nobody ships that. Today we do it properly, with JWT.
 ---
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 Welcome ! When we [built our API]({{site.baseurl}}{% post_url 2024-03-15-how-to-build-an-api-in-deno-with-danet-v2 %}), we ended on Guards, and our example compared a header against a hardcoded Basic auth string. It made the point, but nobody ships that. Today we replace it with something you can actually put in production : JSON Web Tokens.
 

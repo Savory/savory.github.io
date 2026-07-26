@@ -4,7 +4,7 @@ title: Use Mongodb in Deno with Danet
 excerpt: Get ready to use MongoDB in Danet in few minutes !
 ---
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 Welcome ! Today's article is here to help you add a MongoDB connection to your Danet's API.
 

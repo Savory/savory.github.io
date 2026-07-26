@@ -4,7 +4,7 @@ title: Pushing updates with Server-Sent Events
 excerpt: A WebSocket is a phone call. Sometimes all you need is a newsletter. Danet does Server-Sent Events with one decorator.
 ---
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 Welcome ! Last time we [opened a WebSocket]({{site.baseurl}}{% post_url 2025-04-11-websockets-in-danet %}), and we closed that article by saying that if the browser never talks back, a WebSocket is more machinery than you need. Today we keep that promise : Server-Sent Events.
 

@@ -4,7 +4,7 @@ title: Body validation in Danet, two ways
 excerpt: Welcome ! Last time, we saw how to build a REST API in Deno using Danet V2. Today, we will add Body validation to it. In V2, you have two ways of doing it.
 ---
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 Welcome ! Last time, we saw [how to build a REST API in Deno using Danet V2]({{site.baseurl}}{% post_url 2024-03-15-how-to-build-an-api-in-deno-with-danet-v2 %}). Today, we will add Body validation to it.
 

@@ -4,7 +4,7 @@ title: Use Postgres in Deno with Danet
 excerpt: Get ready to use Postgres in Danet in few minutes ! This one is the odd cousin of the database family, and that makes it a great excuse to learn custom injectables.
 ---
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 Welcome ! Today's article is here to help you add a Postgres connection to your Danet's API.
 

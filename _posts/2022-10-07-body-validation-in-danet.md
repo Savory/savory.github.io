@@ -4,7 +4,7 @@ title: Body validation in Danet
 excerpt: Welcome ! Last time, we saw [how to create a REST API in Deno using Danet]({{site.baseurl}}{% post_url 2022-08-28-how-to-build-an-api-in-deno-with-danet %}). Today, we will add Body validation to it.
 ---
 
-![deno logo.png]({{site.baseurl}}/assets/images/deno logo.png)
+![danet-logo.svg]({{site.baseurl}}/assets/images/danet-logo.svg)
 
 Welcome ! Last time, we saw [how to create a REST API in Deno using Danet]({{site.baseurl}}{% post_url 2022-08-28-how-to-build-an-api-in-deno-with-danet %}). Today, we will add Body validation to it.
 
