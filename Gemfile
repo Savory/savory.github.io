@@ -1,17 +1,24 @@
 source "https://rubygems.org"
 
-gem "github-pages", group: :jekyll_plugins
+# The site is built by .github/workflows/pages.yml, not by GitHub Pages' stock
+# pipeline. That is what makes _plugins/ run — the stock pipeline ignores it.
+gem "jekyll", "~> 4.4"
 
-gem "tzinfo-data"
-gem "wdm", "~> 0.1.0" if Gem.win_platform?
-
-# If you have any plugins, put them here!
 group :jekyll_plugins do
+  gem "jekyll-remote-theme"
   gem "jekyll-paginate"
   gem "jekyll-sitemap"
   gem "jekyll-gist"
   gem "jekyll-feed"
   gem "jemoji"
   gem "jekyll-include-cache"
-  gem "jekyll-algolia"
 end
+
+# No longer in Ruby's default gems, but still needed by Jekyll's dependencies.
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+gem "logger"
+
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "wdm", "~> 0.1.0", platforms: [:mingw, :mswin, :x64_mingw]

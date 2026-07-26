@@ -4,3 +4,5 @@ _site
 Gemfile.lock
 ARTICLE-PLAN.md
 ARTICLE-DONE.md
+vendor/bundle
+.bundle
